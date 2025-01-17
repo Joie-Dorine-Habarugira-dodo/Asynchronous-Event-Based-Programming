@@ -1,18 +1,16 @@
 function transformString(text, callback1, callback2) {
-    callback1(text)
-    callback2(text)
+    text = callback1(text)
+    text = callback2(text)
+    return text
 }
-function uppercase( callback){
-    callback(text)
-    console.log(text.toUpperCase())
+function uppercase(text) {
+    return text.toUpperCase()
 }
-function reverse(text){
-    console.log(text.split('').reverse().join(''))
+function reverse(text) {
+    return text.split('').reverse().join('');
+}
+console.log(transformString('hi', uppercase, reverse))
 
-    
-   
-}
-transformString('hello world', uppercase(reverse), reverse)
 // Input: "hello world"
 // Expected output with uppercase and reverse callbacks:
 // "DLROW OLLEH"
